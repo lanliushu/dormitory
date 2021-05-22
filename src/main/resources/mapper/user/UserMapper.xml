@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+  namespace绑定了与之对应的接口,值是该接口的全限定名;这个参数有且只有一个
+-->
+<mapper namespace="com.lanliushu.dao.UserMapper">
+
+    <resultMap id="userMap" type="User">
+        <id column="id" property="uuid"/>
+        <result column="name" property="userName"/>
+        <result column="age" property="userAge"/>
+        <result column="email" property="userEmail"/>
+    </resultMap>
+
+    <insert id="inserUser" parameterType="User">
+        insert into
+        tb_user
+        (
+            id,
+            name,
+            age,
+            email
+        )
+        value (
+            #{uuid},
+            #{userName},
+            #{userAge},
+            #{userEmail}
+        )
+    </insert>
+    <delete id="deleUser">
+        delete from
+            tb_user
+        where
+            id=#{id}
+    </delete>
+
+    <select id="selectUser" resultMap="userMap">
+        select
+            id,
+            name,
+            age,
+            email
+        from
+            tb_user
+        where
+            id=#{id}
+    </select>
+
+    <update id="updateUser" parameterType="User">
+        update
+            tb_user
+        set
+            id=#{uuid},
+            name=#{userName},
+            age=#{userAge},
+            email=#{userEmail}
+        where
+            id=0
+    </update>
+</mapper>

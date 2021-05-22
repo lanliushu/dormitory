@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+hhhhhhhh...
+    <form action="/user" method="get">
+        <input value="get提交" type="submit"/>
+    </form>
+    <form action="/user" method="post">
+        <input value="post提交" type="submit"/>
+    </form>
+    <form action="http://localhost:8888/dormitory/user" method="post">
+        <input name="_method" type="hidden" value="PUT">
+        <input value="put提交" type="submit"/>
+    </form>
+    <form action="/user" method="post">
+        <input name="_method" type="hidden" value="DELETE">
+        <input value="delete提交" type="submit"/>
+    </form>
+</body>
+</html>
